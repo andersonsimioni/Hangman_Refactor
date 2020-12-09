@@ -6,6 +6,5 @@ public class Main {
     public static void main(String[] args) {
         univali.bit.View.Doll doll = new Doll();
         doll.setWrongErrors(3);
-        doll.Execute();
     }
 }
