@@ -12,7 +12,7 @@ public class WordList {
      * read words from internal saved file path
      */
     public WordList() {
-        this.WordList = FileIO.readLines(FileName);
+        this.WordList = FileIO.readLines2(FileName);
     }
 
     public ArrayList<String> getWordList() {
@@ -20,8 +20,6 @@ public class WordList {
     }
 
     public String getWord(){
-        //return "BARATA";
-
         int randomIndex = (int) (Math.random() * (this.getWordList().size()));
         return this.getWordList().get(randomIndex).toUpperCase();
     }
