@@ -1,11 +1,11 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import univali.bit.View.GameOver;
+import univali.bit.View.EndGame;
 
 public class TestGameOver {
     @Test
     public void TestLose(){
-        GameOver gameOver = new GameOver();
+        EndGame gameOver = new EndGame();
         String loseMessage = " YOU LOSE!\n " +
                 " ___________.._______\n" +
                 "| .__________))______|\n" +
@@ -37,7 +37,7 @@ public class TestGameOver {
     @Test
     public void TestWin()
     {
-        GameOver gameOver = new GameOver();
+        EndGame gameOver = new EndGame();
 
         String winMessage = "    )   )                    (       )  \n" +
                 "  ( /(( /(          (  (      )\\ ) ( /(  \n" +

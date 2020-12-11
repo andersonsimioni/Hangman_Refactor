@@ -1,6 +1,6 @@
 package univali.bit.View;
 
-public class GameOver {
+public class EndGame {
 
     public String Lose()
     {
