@@ -20,9 +20,9 @@ public class WordList {
     }
 
     public String getWord(){
-        return "BARATA";
+        //return "BARATA";
 
-        //int randomIndex = (int) (Math.random() * (this.getWordList().size()));
-        //return this.getWordList().get(randomIndex).toUpperCase();
+        int randomIndex = (int) (Math.random() * (this.getWordList().size()));
+        return this.getWordList().get(randomIndex).toUpperCase();
     }
 }
