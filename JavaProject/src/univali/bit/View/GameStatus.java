@@ -1,18 +1,11 @@
 package univali.bit.View;
 
+import univali.bit.Model.SecretWord;
 import java.util.ArrayList;
 
 public class GameStatus {
-    enum RoundResults{
-        CorrectLetter,
-        WrongLetter,
-        WinGame,
-        LoseGame,
-        LetterAlreadyPlayed
-    }
-
     private String secretWord;
-    private RoundResults result;
+    private SecretWord.KickResults result;
     private ArrayList<String> WrongKicks;
     private ArrayList<String> CorrectlyKicks;
 
@@ -20,7 +13,7 @@ public class GameStatus {
         this.secretWord = secretWord;
     }
 
-    public void setResult(RoundResults result) {
+    public void setResult(SecretWord.KickResults result) {
         this.result = result;
     }
 
@@ -44,7 +37,7 @@ public class GameStatus {
         System.out.println(wrong);
         System.out.println(correctly);
     }
-    
+
     public void render(){
         renderCorrectlyWrongLetters();
 
