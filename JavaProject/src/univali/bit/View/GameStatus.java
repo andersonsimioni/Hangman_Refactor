@@ -32,7 +32,22 @@ public class GameStatus {
         CorrectlyKicks = correctlyKicks;
     }
 
-    public void Render(){
+    private void renderCorrectlyWrongLetters(){
+        String wrong = "Wront letters: ";
+        for (String s:WrongKicks)
+            wrong += s + "; ";
+
+        String correctly = "Correctly letters: ";
+        for (String s:CorrectlyKicks)
+            correctly += s + "; ";
+
+        System.out.println(wrong);
+        System.out.println(correctly);
+    }
+    
+    public void render(){
+        renderCorrectlyWrongLetters();
+
         switch (result){
             case WinGame -> {
                 EndGame game = new EndGame();
@@ -43,9 +58,15 @@ public class GameStatus {
                 System.out.println(game.Lose());
             }
 
-            case WrongLetter -> {}
-            case CorrectLetter -> {}
-            case LetterAlreadyPlayed -> {}
+            case WrongLetter -> {
+                System.out.println("Wrong letter :(");
+            }
+            case CorrectLetter -> {
+                System.out.println("Nice kick !!");
+            }
+            case LetterAlreadyPlayed -> {
+                System.out.println("Letter already played");
+            }
         }
     }
 }
