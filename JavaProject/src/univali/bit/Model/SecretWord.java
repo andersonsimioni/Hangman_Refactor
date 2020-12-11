@@ -48,6 +48,11 @@ public class SecretWord {
     }
 
     public void kick(String kick){
+        if(kick.length() > 1){
+
+        }else{
+
+        }
 
         this.KickResult = KickResults.CorrectLetter;
     }
@@ -57,6 +62,6 @@ public class SecretWord {
     }
 
     private boolean containsLetter(String letter){
-        return false;
+        return SecretWord.contains(letter);
     }
 }

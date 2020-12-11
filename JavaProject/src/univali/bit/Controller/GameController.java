@@ -14,9 +14,8 @@ public class GameController extends Command {
     public void Execute() {
         while (Word.isEndGame() == false){
             Input.read();
-
             this.Word.kick(Input.getInput());
-            
+
             this.Status.setResult(this.Word.getKickResult());
             this.Status.setSecretWord(this.Word.getSecretWord());
             this.Status.setWrongKicks(this.Word.getWrongKicks());

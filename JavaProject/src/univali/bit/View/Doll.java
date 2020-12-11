@@ -9,7 +9,7 @@ public class Doll {
         this.wrongErrors = wrongErrors;
     }
 
-    public String render(){
+    public void render(){
         boolean head = this.wrongErrors >= 1;
         boolean body = this.wrongErrors >= 2;
         boolean leftArm = this.wrongErrors >= 3;
@@ -17,16 +17,18 @@ public class Doll {
         boolean leftLeg = this.wrongErrors >= 5;
         boolean rightLeg = this.wrongErrors >= 6;
 
-        return "+=====+" +
-                "\n||    |"+
-                "\n||    " + (head ? "o" : " ")+
-                "\n||   " +
-                (leftArm ? "/" : " ")+
-                (body ? "|" : " ")+
-                (rightArm ? "\\" : " ")+
-                "\n||   "+
-                (leftLeg ? "/" : " ")+
-                (rightLeg ? " \\" : " ")+
-                "\n------------\n";
+        String data = "+=====+" +
+                        "\n||    |"+
+                        "\n||    " + (head ? "o" : " ")+
+                        "\n||   " +
+                        (leftArm ? "/" : " ")+
+                        (body ? "|" : " ")+
+                        (rightArm ? "\\" : " ")+
+                        "\n||   "+
+                        (leftLeg ? "/" : " ")+
+                        (rightLeg ? " \\" : " ")+
+                        "\n------------\n";
+
+        System.out.println(data);
     }
 }

@@ -38,7 +38,15 @@ public class GameStatus {
         System.out.println(correctly);
     }
 
+    private void renderDoll(){
+        Doll doll = new Doll();
+        doll.setWrongErrors(WrongKicks.size());
+
+        doll.render();
+    }
+
     public void render(){
+        renderDoll();
         renderCorrectlyWrongLetters();
 
         switch (result){
