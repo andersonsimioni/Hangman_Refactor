@@ -1,5 +1,6 @@
 package univali.bit.Model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class WordList {
@@ -19,7 +20,9 @@ public class WordList {
     }
 
     public String getWord(){
-        int randomIndex = (int) (Math.random() * (this.getWordList().size()));
-        return this.getWordList().get(randomIndex).toUpperCase();
+        return "BARATA";
+
+        //int randomIndex = (int) (Math.random() * (this.getWordList().size()));
+        //return this.getWordList().get(randomIndex).toUpperCase();
     }
 }

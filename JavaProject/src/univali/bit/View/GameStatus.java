@@ -4,13 +4,13 @@ import univali.bit.Model.SecretWord;
 import java.util.ArrayList;
 
 public class GameStatus {
-    private String secretWord;
+    private String SecretWord;
     private SecretWord.KickResults result;
     private ArrayList<String> WrongKicks;
     private ArrayList<String> CorrectlyKicks;
 
     public void setSecretWord(String secretWord) {
-        this.secretWord = secretWord;
+        this.SecretWord = secretWord;
     }
 
     public void setResult(SecretWord.KickResults result) {
@@ -38,6 +38,17 @@ public class GameStatus {
         System.out.println(correctly);
     }
 
+    private void renderSecretWordCorrectlyLetters(){
+        String strikesOfSecretWord = "";
+        for (int i = 0; i < this.SecretWord.length(); i++)
+            if(this.CorrectlyKicks.contains(String.valueOf(this.SecretWord.charAt(i))))
+                strikesOfSecretWord += this.SecretWord.charAt(i);
+            else
+                strikesOfSecretWord += "_";
+
+        System.out.println(strikesOfSecretWord);
+    }
+
     private void renderDoll(){
         Doll doll = new Doll();
         doll.setWrongErrors(WrongKicks.size());
@@ -47,6 +58,7 @@ public class GameStatus {
 
     public void render(){
         renderDoll();
+        renderSecretWordCorrectlyLetters();
         renderCorrectlyWrongLetters();
 
         switch (result){
@@ -64,9 +76,6 @@ public class GameStatus {
             }
             case CorrectLetter -> {
                 System.out.println("Nice kick !!");
-            }
-            case LetterAlreadyPlayed -> {
-                System.out.println("Letter already played");
             }
         }
     }

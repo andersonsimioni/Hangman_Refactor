@@ -1,5 +1,7 @@
 package univali.bit.Model;
 
+import univali.bit.View.GameStatus;
+
 import java.util.ArrayList;
 
 public class SecretWord {
@@ -7,8 +9,7 @@ public class SecretWord {
         CorrectLetter,
         WrongLetter,
         WinGame,
-        LoseGame,
-        LetterAlreadyPlayed
+        LoseGame
     }
 
     private KickResults KickResult;
@@ -40,21 +41,38 @@ public class SecretWord {
     }
 
     public boolean isEndGame(){
-        for (int i = 0; i < SecretWord.length(); i++)
-            if(CorrectlyKicks.contains(SecretWord.charAt(i)) == false)
-                return false;
+        return (KickResult == KickResults.WinGame || KickResult == KickResults.LoseGame);
+    }
 
-        return true;
+    private void updateEndGameStatus(){
+        if(getWrongKicks().size() >= 6)
+            KickResult = KickResults.LoseGame;
+
+        for (int i = 0; i < SecretWord.length(); i++)
+            if(CorrectlyKicks.contains(String.valueOf(SecretWord.charAt(i))) == false)
+                return;
+        KickResult = KickResults.WinGame;
     }
 
     public void kick(String kick){
         if(kick.length() > 1){
+            this.KickResult = KickResults.LoseGame;
+            if(hitWord(kick))
+                this.KickResult = KickResults.WinGame;
 
-        }else{
-
+            return;
         }
 
-        this.KickResult = KickResults.CorrectLetter;
+        if(SecretWord.contains(kick)){
+            this.CorrectlyKicks.add(kick);
+            this.KickResult = KickResults.CorrectLetter;
+        }
+        else{
+            this.WrongKicks.add(kick);
+            this.KickResult = KickResults.WrongLetter;
+        }
+
+        updateEndGameStatus();
     }
 
     private boolean hitWord(String word){

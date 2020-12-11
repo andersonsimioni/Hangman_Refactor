@@ -13,7 +13,10 @@ public class GameController extends Command {
     @Override
     public void Execute() {
         while (Word.isEndGame() == false){
+            Input.addRangePlayedLetters(this.Word.getCorrectlyKicks());
+            Input.addRangePlayedLetters(this.Word.getWrongKicks());
             Input.read();
+
             this.Word.kick(Input.getInput());
 
             this.Status.setResult(this.Word.getKickResult());
