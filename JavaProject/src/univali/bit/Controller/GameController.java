@@ -16,8 +16,7 @@ public class GameController extends Command {
         if(menu.getInput().equals("A")){
             this.newGame();
         } else if(menu.getInput().equals("B")){
-            Thank.show();
-            System.exit(0);
+            this.exit();
         }
     }
 
@@ -41,6 +40,11 @@ public class GameController extends Command {
             this.Status.setCorrectlyKicks(this.Word.getCorrectlyKicks());
             this.Status.render();
         }
+    }
+
+    private void exit(){
+        Thank.show();
+        System.exit(0);
     }
 
     public GameController(){
