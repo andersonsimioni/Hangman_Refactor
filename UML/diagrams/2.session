@@ -1,0 +1,17 @@
+window_sizes 1366 727 320 1042 579 104
+
+diagrams
+  sequencediagram_ref 128002 // SequenceDiagram
+    120 90 100 A4 0 0
+  usecasediagram_ref 128123 // Diagram
+    1042 579 100 A4 0 0
+  active  classdiagram_ref 128379 // ClassDiagram
+    1042 579 100 A4 0 0
+end
+show_stereotypes
+selected classdiagram_ref 128379 // ClassDiagram
+open
+  usecaseview_ref 128123 // UseCase
+  classview_ref 128123 // AllClassesView
+end
+end

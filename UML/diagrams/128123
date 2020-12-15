@@ -1,0 +1,762 @@
+format 222
+"Hangman" // Hangman
+  revision 7
+  modified_by 2 "bit"
+  // class settings
+  
+  classdiagramsettings member_max_width 0 end
+  
+  classcompositediagramsettings end
+  
+  usecasediagramsettings end
+  
+  sequencediagramsettings end
+  
+  collaborationdiagramsettings end
+  
+  objectdiagramsettings end
+  
+  objectcompositediagramsettings end
+  
+  componentdiagramsettings
+   end
+  
+  deploymentdiagramsettings
+   end
+  
+  statediagramsettings
+   end
+  
+  activitydiagramsettings
+   end
+  
+  usecaseview 128123 "UseCase"
+    
+    usecasediagramsettings end
+    
+    sequencediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    activitydiagramsettings
+     end
+    usecasediagram 128123 "Diagram"
+      usecasediagramsettings draw_all_relations no end
+      size A4
+    end
+
+    class 128123 "Player"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128123 "Name"
+	const_attribute private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 128251 "Score"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 128379 "AddScore"
+	protected explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 135291 // <association>
+	relation 134907 ----
+	  a role_name "" private
+	    classrelation_ref 135291 // <association>
+	  b role_name "" private
+	    classrelation_ref 135419 // <association>
+      end
+
+      classrelation 128002 // <composition>
+	relation 128002 *---
+	  a role_name "" private
+	    classrelation_ref 128002 // <composition>
+	  b role_name "" private
+	    classrelation_ref 128130 // <composition>
+      end
+
+      classrelation 128514 // <directional composition>
+	relation 128258 *-->
+	  a role_name "" private
+	    classrelation_ref 128514 // <directional composition>
+	  b parent class_ref 128251 // Game
+      end
+    end
+
+    usecase 128123 "NewGame"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128123
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128635 // CreatePlayer
+      end
+    end
+
+    usecase 128251 "TryChar"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128251
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128763 // PlayLetter
+      end
+    end
+
+    usecase 128379 "TryWord"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 128379
+	-_->
+	  stereotype "include"
+	  on usecase_ref 128763 // PlayLetter
+      end
+    end
+
+    usecase 128507 "EndGame"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 128635 "CreatePlayer"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 128763 "PlayLetter"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    usecase 128891 "StartGame"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
+
+    class 128507 "WorldList"
+      visibility package stereotype "actor"
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 128763 "WordList"
+	const_attribute private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 128123 // <association>
+	relation 128123 ----
+	  a role_name "" private
+	    classrelation_ref 128123 // <association>
+	  b role_name "" private
+	    classrelation_ref 128251 // <association>
+      end
+
+      operation 129147 "getSecretWord"
+	public return_type class_ref 128635 // SecretWord
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 134779 // <association>
+	relation 134651 ----
+	  a role_name "" private
+	    classrelation_ref 134779 // <association>
+	  b role_name "" private
+	    classrelation_ref 134907 // <association>
+      end
+
+      classrelation 135035 // <association>
+	relation 134779 ----
+	  a role_name "" private
+	    classrelation_ref 135035 // <association>
+	  b role_name "" private
+	    classrelation_ref 135163 // <association>
+      end
+
+      attribute 136059 "FileName"
+	class_attribute private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+
+    sequencediagram 128002 "SequenceDiagram"
+      sequencediagramsettings end
+      overlapping_bars size A4
+    end
+
+    usecase 134530 "readWordlistFile"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+      simplerelation 134530
+	-_->
+	  on usecase_ref 134530 // readWordlistFile
+      end
+
+      simplerelation 134658
+	-_->
+	  on usecase_ref 134530 // readWordlistFile
+      end
+
+      simplerelation 134786
+	-_->
+	  on usecase_ref 134530 // readWordlistFile
+      end
+    end
+  end
+
+  classview 128123 "AllClassesView"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    classdiagram 128379 "ClassDiagram"
+      classdiagramsettings draw_all_relations no member_max_width 0 end
+      size A4
+    end
+
+    class 128251 "Game"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 128123 "Game"
+	public return_type class_ref 128251 // Game
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      attribute 128379 "Player"
+	private type class_ref 128123 // Player
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 128507 "playLetter"
+	protected explicit_return_type ""
+	nparams 1
+	  param in name "letter" explicit_type "char"
+	
+	
+	
+	
+	
+      end
+
+      operation 128763 "renderGameResult"
+	private explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      attribute 128891 "LocalSecretWord"
+	const_attribute private type class_ref 128635 // SecretWord
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 134907 // <association>
+	relation_ref 134651 // <association>
+      end
+
+      classrelation 135419 // <association>
+	relation_ref 134907 // <association>
+      end
+
+      operation 136059 "startGame"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 136187 "endGame"
+	private explicit_return_type ""
+	nparams 1
+	  param in name "result" explicit_type "PlayResult"
+	
+	
+	
+	
+	
+      end
+
+      classrelation 128130 // <composition>
+	relation_ref 128002 // <composition>
+      end
+
+      classrelation 128386 // <composition>
+	relation_ref 128130 // <composition>
+      end
+
+      operation 128514 "getNewSecretWord"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 128642 "gameEnded"
+	public explicit_return_type "bool"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      attribute 135803 "LocalPlayResult"
+	private explicit_type "SecretWord.PlayResult"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135931 "WordList"
+	const_attribute private type class_ref 128507 // WorldList
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 135170 "addPointToPlayer"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 135298 "checkIfPlayerWin"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+    end
+
+    class 128379 "FileIO"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 128891 "readLines"
+	public explicit_return_type "string"
+	nparams 1
+	  param in name "Path" explicit_type "string"
+	
+	
+	
+	
+	
+      end
+
+      classrelation 128251 // <association>
+	relation_ref 128123 // <association>
+      end
+
+      operation 128002 "selectCorrectPath"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+    end
+
+    class 128635 "SecretWord"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 129019 "Word"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 129147 "CorrectLetters"
+	const_attribute private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 129275 "WrongLetters"
+	const_attribute private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 129275 "renderDoll"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 129403 "playLetter"
+	public explicit_return_type "PlayResult"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 135163 // <association>
+	relation_ref 134779 // <association>
+      end
+
+      classrelation 128258 // <composition>
+	relation 128130 *---
+	  a role_name "" private
+	    classrelation_ref 128258 // <composition>
+	  b role_name "" private
+	    classrelation_ref 128386 // <composition>
+      end
+
+      classrelation 128642 // <directional composition>
+	relation 128386 *-->
+	  a role_name "" private
+	    classrelation_ref 128642 // <directional composition>
+	  b parent class_ref 128251 // Game
+      end
+
+      operation 128130 "renderCorrectLetters"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 128258 "renderWrongLetters"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 128386 "toString"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      attribute 128002 "PlayResult"
+	private explicit_type "enum"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+    end
+  end
+end
