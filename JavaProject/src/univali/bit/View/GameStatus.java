@@ -39,14 +39,7 @@ public class GameStatus {
     }
 
     private void renderSecretWordCorrectlyLetters(){
-        String strikesOfSecretWord = "";
-        for (int i = 0; i < this.SecretWord.length(); i++)
-            if(this.CorrectlyKicks.contains(String.valueOf(this.SecretWord.charAt(i))))
-                strikesOfSecretWord += this.SecretWord.charAt(i);
-            else
-                strikesOfSecretWord += "_";
-
-        System.out.println(strikesOfSecretWord);
+        System.out.println(this.SecretWord);
     }
 
     private void renderDoll(){

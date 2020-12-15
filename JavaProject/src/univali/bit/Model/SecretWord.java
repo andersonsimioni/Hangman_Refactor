@@ -107,4 +107,15 @@ public class SecretWord {
             throw new IllegalArgumentException("letter already played");
         }
     }
+
+    public String getSecretWordWithWildCards(){
+        String strikesOfSecretWord = "";
+        for (int i = 0; i < this.SecretWord.length(); i++)
+            if(this.CorrectlyKicks.contains(String.valueOf(this.SecretWord.charAt(i))))
+                strikesOfSecretWord += this.SecretWord.charAt(i);
+            else
+                strikesOfSecretWord += "_";
+
+        return strikesOfSecretWord;
+    }
 }

@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class Input {
     private String input;
-    private List<String> PlayedLetters;
 
     public void read(){
         Scanner reader = new Scanner(System.in);

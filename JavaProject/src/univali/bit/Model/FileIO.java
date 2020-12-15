@@ -12,29 +12,6 @@ public class FileIO {
      * @return string data in lines of file
      */
     public static ArrayList<String> readLines(String path) {
-        try {
-            File file = new File(path);
-            ArrayList<String> lines = new ArrayList<>();
-            Scanner myReader = new Scanner(file);
-
-            while (myReader.hasNextLine())
-                lines.add(myReader.nextLine());
-
-            return lines;
-        }
-        catch (FileNotFoundException fileNotFoundException){
-            System.out.println("File not found '" + path + "'\n");
-            System.out.println("StackTrace: " + Arrays.toString(fileNotFoundException.getStackTrace()));
-            return null;
-        }
-    }
-
-    /**
-     * Read all lines from text file
-     * @param path name of file to read in local path files
-     * @return string data in lines of file
-     */
-    public static ArrayList<String> readLines2(String path) {
         BufferedReader reader;
         ArrayList<String> lines = new ArrayList<>();
         try {

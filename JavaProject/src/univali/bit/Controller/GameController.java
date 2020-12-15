@@ -24,16 +24,19 @@ public class GameController extends Command {
     private void newGame()
     {
         while (!Word.isEndGame()){
+//            System.out.println(Word.getSecretWord());
+
             Input.read();
 
             try {
                 this.Word.kick(Input.getInput());
             } catch (IllegalArgumentException e){
-                Messages.show(e.getMessage());
+                Messages messages = new Messages(e.getMessage());
+                messages.show();
             }
 
             this.Status.setResult(this.Word.getKickResult());
-            this.Status.setSecretWord(this.Word.getSecretWord());
+            this.Status.setSecretWord(this.Word.getSecretWordWithWildCards());
             this.Status.setWrongKicks(this.Word.getWrongKicks());
             this.Status.setCorrectlyKicks(this.Word.getCorrectlyKicks());
             this.Status.render();

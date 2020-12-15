@@ -12,7 +12,7 @@ public class WordList {
      * read words from internal saved file path
      */
     public WordList() {
-        this.WordList = FileIO.readLines2(FileName);
+        this.WordList = FileIO.readLines(FileName);
     }
 
     public ArrayList<String> getWordList() {
