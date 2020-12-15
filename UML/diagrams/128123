@@ -1,6 +1,6 @@
 format 222
 "Hangman" // Hangman
-  revision 7
+  revision 8
   modified_by 2 "bit"
   // class settings
   
@@ -66,38 +66,6 @@ format 222
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 128123 "Name"
-	const_attribute private explicit_type "string"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 128251 "Score"
-	private explicit_type "int"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      operation 128379 "AddScore"
-	protected explicit_return_type "void"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
       classrelation 135291 // <association>
 	relation 134907 ----
 	  a role_name "" private
@@ -118,7 +86,7 @@ format 222
 	relation 128258 *-->
 	  a role_name "" private
 	    classrelation_ref 128514 // <directional composition>
-	  b parent class_ref 128251 // Game
+	  b parent class_ref 128251 // GameController
       end
     end
 
@@ -148,6 +116,11 @@ format 222
 	  stereotype "include"
 	  on usecase_ref 128635 // CreatePlayer
       end
+
+      simplerelation 141314
+	-_->
+	  on usecase_ref 128763 // Kick
+      end
     end
 
     usecase 128251 "TryChar"
@@ -174,7 +147,7 @@ format 222
       simplerelation 128251
 	-_->
 	  stereotype "include"
-	  on usecase_ref 128763 // PlayLetter
+	  on usecase_ref 128763 // Kick
       end
     end
 
@@ -202,7 +175,7 @@ format 222
       simplerelation 128379
 	-_->
 	  stereotype "include"
-	  on usecase_ref 128763 // PlayLetter
+	  on usecase_ref 128763 // Kick
       end
     end
 
@@ -252,7 +225,7 @@ format 222
        end
     end
 
-    usecase 128763 "PlayLetter"
+    usecase 128763 "Kick"
       
       usecasediagramsettings end
       
@@ -275,7 +248,7 @@ format 222
        end
     end
 
-    usecase 128891 "StartGame"
+    usecase 128891 "Exit"
       
       usecasediagramsettings end
       
@@ -328,8 +301,8 @@ format 222
 	    classrelation_ref 128251 // <association>
       end
 
-      operation 129147 "getSecretWord"
-	public return_type class_ref 128635 // SecretWord
+      operation 129147 "getWord"
+	public explicit_return_type "string"
 	nparams 0
 	
 	
@@ -363,6 +336,17 @@ format 222
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      classrelation 137346 // <directional aggregation>
+	relation 136194 o-->
+	  a role_name "" private
+	    classrelation_ref 137346 // <directional aggregation>
+	  b parent class_ref 128379 // FileIO
+      end
+
+      classrelation 137602 // <composition>
+	relation_ref 136322 // <composition>
       end
     end
 
@@ -407,6 +391,29 @@ format 222
 	  on usecase_ref 134530 // readWordlistFile
       end
     end
+
+    usecase 141058 "Finalizar"
+      
+      usecasediagramsettings end
+      
+      sequencediagramsettings end
+      
+      collaborationdiagramsettings end
+      
+      classdiagramsettings member_max_width 0 end
+      
+      classcompositediagramsettings end
+      
+      objectdiagramsettings end
+      
+      objectcompositediagramsettings end
+      
+      statediagramsettings
+       end
+      
+      activitydiagramsettings
+       end
+    end
   end
 
   classview 128123 "AllClassesView"
@@ -434,7 +441,7 @@ format 222
       size A4
     end
 
-    class 128251 "Game"
+    class 128251 "GameController"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -444,57 +451,14 @@ format 222
       explicit_switch_type ""
       mysql_decl ""
       
-      operation 128123 "Game"
-	public return_type class_ref 128251 // Game
+      operation 128123 "GameController"
+	public return_type class_ref 128251 // GameController
 	nparams 0
 	
 	
 	
 	
 	
-      end
-
-      attribute 128379 "Player"
-	private type class_ref 128123 // Player
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      operation 128507 "playLetter"
-	protected explicit_return_type ""
-	nparams 1
-	  param in name "letter" explicit_type "char"
-	
-	
-	
-	
-	
-      end
-
-      operation 128763 "renderGameResult"
-	private explicit_return_type "void"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
-      attribute 128891 "LocalSecretWord"
-	const_attribute private type class_ref 128635 // SecretWord
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
       end
 
       classrelation 134907 // <association>
@@ -505,27 +469,6 @@ format 222
 	relation_ref 134907 // <association>
       end
 
-      operation 136059 "startGame"
-	public explicit_return_type "void"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
-      operation 136187 "endGame"
-	private explicit_return_type ""
-	nparams 1
-	  param in name "result" explicit_type "PlayResult"
-	
-	
-	
-	
-	
-      end
-
       classrelation 128130 // <composition>
 	relation_ref 128002 // <composition>
       end
@@ -534,28 +477,8 @@ format 222
 	relation_ref 128130 // <composition>
       end
 
-      operation 128514 "getNewSecretWord"
-	public explicit_return_type "void"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
-      operation 128642 "gameEnded"
-	public explicit_return_type "bool"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
-      attribute 135803 "LocalPlayResult"
-	private explicit_type "SecretWord.PlayResult"
+      attribute 135042 "Status"
+	const_attribute private explicit_type "GameStatus"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -565,8 +488,8 @@ format 222
 	MysqlColumn
       end
 
-      attribute 135931 "WordList"
-	const_attribute private type class_ref 128507 // WorldList
+      attribute 135170 "Word"
+	const_attribute private explicit_type "SecretWord"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -576,7 +499,18 @@ format 222
 	MysqlColumn
       end
 
-      operation 135170 "addPointToPlayer"
+      attribute 135298 "input"
+	const_attribute private explicit_type "Input"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 143106 "Execute"
 	public explicit_return_type "void"
 	nparams 0
 	
@@ -586,7 +520,7 @@ format 222
 	
       end
 
-      operation 135298 "checkIfPlayerWin"
+      operation 143234 "newGame"
 	public explicit_return_type "void"
 	nparams 0
 	
@@ -594,6 +528,68 @@ format 222
 	
 	
 	
+      end
+
+      operation 143362 "exit"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 135682 // <association>
+	relation 135298 ----
+	  a role_name "" private
+	    classrelation_ref 135682 // <association>
+	  b role_name "" private
+	    classrelation_ref 135810 // <association>
+      end
+
+      classrelation 135938 // <composition>
+	relation 135426 *---
+	  a role_name "" private
+	    classrelation_ref 135938 // <composition>
+	  b role_name "" private
+	    classrelation_ref 136066 // <composition>
+      end
+
+      classrelation 136194 // <composition>
+	relation 135554 *---
+	  a role_name "" private
+	    classrelation_ref 136194 // <composition>
+	  b role_name "" private
+	    classrelation_ref 136322 // <composition>
+      end
+
+      classrelation 136578 // <composition>
+	relation_ref 135682 // <composition>
+      end
+
+      classrelation 136706 // <composition>
+	relation 135810 *---
+	  a role_name "" private
+	    classrelation_ref 136706 // <composition>
+	  b role_name "" private
+	    classrelation_ref 136834 // <composition>
+      end
+
+      classrelation 137730 // <composition>
+	relation 136450 *---
+	  a role_name "" private
+	    classrelation_ref 137730 // <composition>
+	  b role_name "" private
+	    classrelation_ref 137858 // <composition>
+      end
+
+      classrelation 138498 // <composition>
+	relation 136834 *---
+	  a role_name "" private
+	    classrelation_ref 138498 // <composition>
+	  b role_name "" private
+	    classrelation_ref 138626 // <composition>
       end
     end
 
@@ -622,15 +618,6 @@ format 222
 	relation_ref 128123 // <association>
       end
 
-      operation 128002 "selectCorrectPath"
-	public explicit_return_type "string"
-	nparams 0
-	
-	
-	
-	
-	
-      end
     end
 
     class 128635 "SecretWord"
@@ -643,61 +630,6 @@ format 222
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 129019 "Word"
-	private explicit_type "string"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 129147 "CorrectLetters"
-	const_attribute private explicit_type "string"
-	stereotype "list"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 129275 "WrongLetters"
-	const_attribute private explicit_type "string"
-	stereotype "list"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      operation 129275 "renderDoll"
-	public explicit_return_type "void"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
-      operation 129403 "playLetter"
-	public explicit_return_type "PlayResult"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
       classrelation 135163 // <association>
 	relation_ref 134779 // <association>
       end
@@ -714,11 +646,84 @@ format 222
 	relation 128386 *-->
 	  a role_name "" private
 	    classrelation_ref 128642 // <directional composition>
-	  b parent class_ref 128251 // Game
+	  b parent class_ref 128251 // GameController
       end
 
-      operation 128130 "renderCorrectLetters"
-	public explicit_return_type "void"
+      classrelation 136066 // <composition>
+	relation_ref 135426 // <composition>
+      end
+
+      attribute 135426 "KickResults"
+	public explicit_type "enum"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135554 "PlayedLetters"
+	private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135682 "KickResult"
+	private explicit_type "KickResults"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135810 "SecretWord"
+	const_attribute private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 135938 "WrongKicks"
+	private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 136066 "CorrectlyKicks"
+	private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 143490 "getKickResult"
+	public explicit_return_type "KickResults"
 	nparams 0
 	
 	
@@ -727,17 +732,7 @@ format 222
 	
       end
 
-      operation 128258 "renderWrongLetters"
-	public explicit_return_type "void"
-	nparams 0
-	
-	
-	
-	
-	
-      end
-
-      operation 128386 "toString"
+      operation 143618 "getSecretWord"
 	public explicit_return_type "string"
 	nparams 0
 	
@@ -747,8 +742,181 @@ format 222
 	
       end
 
-      attribute 128002 "PlayResult"
-	private explicit_type "enum"
+      operation 143746 "getWrongKicks"
+	stereotype "list"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 143874 "getCorrectlyKicks"
+	stereotype "list"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144002 "SecretWord"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144130 "isEndGame"
+	public explicit_return_type "bool"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144258 "updateEndGameStatus"
+	private explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144386 "kick"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144514 "hitWord"
+	private explicit_return_type "bool"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144642 "containsLetter"
+	private explicit_return_type "bool"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144770 "addRangePlayedLetters"
+	private explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 144898 "validateKick"
+	private explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145026 "getSecretWordWithWildCards"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 137218 // <directional aggregation>
+	relation 136066 o-->
+	  a role_name "" private
+	    classrelation_ref 137218 // <directional aggregation>
+	  b parent class_ref 128379 // FileIO
+      end
+
+      classrelation 137474 // <composition>
+	relation 136322 *---
+	  a role_name "" private
+	    classrelation_ref 137474 // <composition>
+	  b role_name "" private
+	    classrelation_ref 137602 // <composition>
+      end
+    end
+
+    class 128002 "Command"
+      abstract visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 141826 "Execute"
+	abstract cpp_virtual public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 135170 // <generalisation>
+	relation 134914 ---|>
+	  a public
+	    classrelation_ref 135170 // <generalisation>
+	  b parent class_ref 128386 // Doll
+      end
+
+      classrelation 135298 // <generalisation>
+	relation 135042 ---|>
+	  a public
+	    classrelation_ref 135298 // <generalisation>
+	  b parent class_ref 128251 // GameController
+      end
+    end
+
+    class 128130 "GameStatus"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 136194 "SecretWord"
+	private explicit_type "string"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -756,6 +924,397 @@ format 222
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      attribute 136322 "result"
+	private explicit_type "KickResults"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 136450 "WrongKicks"
+	private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 136578 "CorrectlyKicks"
+	private explicit_type "string"
+	stereotype "list"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 145154 "setSecretWord"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145282 "setResult"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145410 "setWrongKicks"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145538 "setCorrectlyKicks"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145666 "renderCorrectlyWrongLetters"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145794 "renderSecretWordCorrectlyLetters"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 145922 "renderDoll"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 146050 "render"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 136322 // <composition>
+	relation_ref 135554 // <composition>
+      end
+
+      classrelation 136962 // <composition>
+	relation 135938 *---
+	  a role_name "" private
+	    classrelation_ref 136962 // <composition>
+	  b role_name "" private
+	    classrelation_ref 137090 // <composition>
+      end
+
+      classrelation 137986 // <composition>
+	relation 136578 *---
+	  a role_name "" private
+	    classrelation_ref 137986 // <composition>
+	  b role_name "" private
+	    classrelation_ref 138114 // <composition>
+      end
+    end
+
+    class 128258 "Input"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 134658 "input"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 142210 "getInput"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 136450 // <composition>
+	relation 135682 *---
+	  a role_name "" private
+	    classrelation_ref 136450 // <composition>
+	  b role_name "" private
+	    classrelation_ref 136578 // <composition>
+      end
+
+      classrelation 136834 // <composition>
+	relation_ref 135810 // <composition>
+      end
+    end
+
+    class 128386 "Doll"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 134914 "wrongErrors"
+	private explicit_type "int"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 142850 "setWrongErrors"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 142978 "render"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 138114 // <composition>
+	relation_ref 136578 // <composition>
+      end
+    end
+
+    class 128514 "EndGame"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 142338 "Lose"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 142466 "Win"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 137090 // <composition>
+	relation_ref 135938 // <composition>
+      end
+    end
+
+    class 128642 "Menu"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 134786 "input"
+	private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 142594 "show"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      operation 142722 "getInput"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 135426 // <association>
+	relation 135170 ----
+	  a role_name "" private
+	    classrelation_ref 135426 // <association>
+	  b role_name "" private
+	    classrelation_ref 135554 // <association>
+      end
+
+      classrelation 135554 // <association>
+	relation_ref 135170 // <association>
+      end
+
+      classrelation 135810 // <association>
+	relation_ref 135298 // <association>
+      end
+    end
+
+    class 128770 "Messages"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      attribute 134530 "message"
+	const_attribute private explicit_type "string"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      operation 142082 "show"
+	public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 137858 // <composition>
+	relation_ref 136450 // <composition>
+      end
+    end
+
+    class 128898 "Thank"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 141954 "show"
+	class_operation public explicit_return_type "void"
+	nparams 0
+	
+	
+	
+	
+	
+      end
+
+      classrelation 138242 // <composition>
+	relation 136706 *---
+	  a role_name "" private
+	    classrelation_ref 138242 // <composition>
+	  b role_name "" private
+	    classrelation_ref 138370 // <composition>
+      end
+
+      classrelation 138370 // <composition>
+	relation_ref 136706 // <composition>
+      end
+
+      classrelation 138626 // <composition>
+	relation_ref 136834 // <composition>
       end
     end
   end

@@ -1,7 +1,7 @@
 format 222
 
 usecasecanvas 128002 usecase_ref 134530 // readWordlistFile
-  xyzwh 459 240 3005 64 32 label_xy 448 272
+  xyzwh 438 280 3005 64 32 label_xy 427 312
 end
 classcanvas 128123 class_ref 128123 // Player
   simpleclassdiagramsettings end
@@ -10,18 +10,21 @@ end
 subject 128251 ""
   xyzwh 104 53 2000 440 379
 usecasecanvas 128379 usecase_ref 128123 // NewGame
-  xyzwh 213 117 3005 67 39 label_xy 215 156
+  xyzwh 161 110 3005 67 39 label_xy 163 149
 end
 usecasecanvas 128763 usecase_ref 128507 // EndGame
-  xyzwh 214 347 3005 67 39 label_xy 216 386
+  xyzwh 259 284 3005 67 39 label_xy 263 333
 end
 textcanvas 128891 "Hangman game"
   xyzwh 110 60 2005 94 22
-usecasecanvas 129787 usecase_ref 128763 // PlayLetter
-  xyzwh 214 275 3005 67 39 label_xy 214 314
+usecasecanvas 129787 usecase_ref 128763 // Kick
+  xyzwh 292 161 3005 67 39 label_xy 306 200
 end
-usecasecanvas 130299 usecase_ref 128891 // StartGame
-  xyzwh 213 203 3005 64 32 label_xy 213 235
+usecasecanvas 130299 usecase_ref 128891 // Exit
+  xyzwh 135 263 3005 64 32 label_xy 152 295
+end
+usecasecanvas 131330 usecase_ref 141058 // Finalizar
+  xyzwh 424 190 3005 64 32 label_xy 436 222
 end
 classcanvas 131451 class_ref 128507 // WorldList
   simpleclassdiagramsettings end
@@ -29,14 +32,23 @@ classcanvas 131451 class_ref 128507 // WorldList
 end
 line 129019 ----
   from ref 128123 z 3006 to ref 128379
-line 129403 ----
-  from ref 128123 z 3006 to ref 128763
-line 130171 ----
-  from ref 128123 z 3006 to ref 129787
 line 130427 ----
   from ref 128123 z 3006 to ref 130299
-line 130434 ----
+line 130562 ----
   from ref 128002 z 3006 to ref 131451
-line 133243 ----
-  from ref 128379 z 3006 to ref 131451
+line 130690 ----
+  from ref 128379 z 3006 to ref 129787
+simplerelationcanvas 130946 simplerelation_ref 141314
+  from ref 128379 z 3006 to ref 129787
+end
+line 131074 ----
+  from ref 128123 z 3006 to ref 129787
+line 131202 ----
+  from ref 130299 z 3006 to ref 128763
+line 131714 ----
+  from ref 129787 z 3006 to ref 131330
+line 131842 ----
+  from ref 128763 z 3006 to ref 131330
+line 131970 ----
+  from ref 131330 z 3006 to ref 131451
 end
