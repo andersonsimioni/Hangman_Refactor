@@ -3,6 +3,7 @@ package univali.bit.Model;
 import univali.bit.View.GameStatus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SecretWord {
     public enum KickResults {
@@ -12,6 +13,7 @@ public class SecretWord {
         LoseGame
     }
 
+    private List<String> PlayedLetters;
     private KickResults KickResult;
     private final String SecretWord;
     private final ArrayList<String> WrongKicks;
@@ -38,6 +40,8 @@ public class SecretWord {
         this.SecretWord = wordList.getWord();
         this.WrongKicks = new ArrayList<String>();
         this.CorrectlyKicks = new ArrayList<String>();
+        this.addRangePlayedLetters(this.getCorrectlyKicks());
+        this.addRangePlayedLetters(this.getWrongKicks());
     }
 
     public boolean isEndGame(){
@@ -55,6 +59,8 @@ public class SecretWord {
     }
 
     public void kick(String kick){
+        this.validateKick(kick);
+
         if(kick.length() > 1){
             this.KickResult = KickResults.LoseGame;
             if(hitWord(kick))
@@ -81,5 +87,24 @@ public class SecretWord {
 
     private boolean containsLetter(String letter){
         return SecretWord.contains(letter);
+    }
+
+    private void addRangePlayedLetters(List<String> playedLetters) {
+        if(PlayedLetters == null)
+            PlayedLetters = new ArrayList<String>();
+
+        for (String s:playedLetters)
+            if(!PlayedLetters.contains(s))
+                PlayedLetters.add(s);
+    }
+
+    private void validateKick(String kick){
+        if(kick == null || kick.isEmpty()){
+            throw new IllegalArgumentException("invalid input!");
+        }
+
+        if(PlayedLetters != null && PlayedLetters.contains(kick)){
+            throw new IllegalArgumentException("letter already played");
+        }
     }
 }

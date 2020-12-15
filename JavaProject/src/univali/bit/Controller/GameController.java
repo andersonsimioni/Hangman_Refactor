@@ -2,8 +2,7 @@ package univali.bit.Controller;
 
 import univali.bit.Command;
 import univali.bit.Model.SecretWord;
-import univali.bit.View.GameStatus;
-import univali.bit.View.Input;
+import univali.bit.View.*;
 
 public class GameController extends Command {
     private final GameStatus Status;
@@ -12,12 +11,26 @@ public class GameController extends Command {
 
     @Override
     public void Execute() {
-        while (Word.isEndGame() == false){
-            Input.addRangePlayedLetters(this.Word.getCorrectlyKicks());
-            Input.addRangePlayedLetters(this.Word.getWrongKicks());
+        Menu menu = new Menu();
+        menu.show();
+        if(menu.getInput().equals("A")){
+            this.newGame();
+        } else if(menu.getInput().equals("B")){
+            Thank.show();
+            System.exit(0);
+        }
+    }
+
+    private void newGame()
+    {
+        while (!Word.isEndGame()){
             Input.read();
 
-            this.Word.kick(Input.getInput());
+            try {
+                this.Word.kick(Input.getInput());
+            } catch (IllegalArgumentException e){
+                Messages.show(e.getMessage());
+            }
 
             this.Status.setResult(this.Word.getKickResult());
             this.Status.setSecretWord(this.Word.getSecretWord());
