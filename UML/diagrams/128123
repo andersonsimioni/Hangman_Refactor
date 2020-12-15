@@ -1,7 +1,7 @@
 format 222
 "Hangman" // Hangman
-  revision 8
-  modified_by 2 "bit"
+  revision 9
+  modified_by 123 "DEBUG"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -345,7 +345,7 @@ format 222
 	  b parent class_ref 128379 // FileIO
       end
 
-      classrelation 137602 // <composition>
+      classrelation 137602 // wordList (<composition>)
 	relation_ref 136322 // <composition>
       end
     end
@@ -548,18 +548,18 @@ format 222
 	    classrelation_ref 135810 // <association>
       end
 
-      classrelation 135938 // <composition>
+      classrelation 135938 // SecretWord (<composition>)
 	relation 135426 *---
-	  a role_name "" private
-	    classrelation_ref 135938 // <composition>
+	  a role_name "SecretWord" multiplicity "1" private
+	    classrelation_ref 135938 // SecretWord (<composition>)
 	  b role_name "" private
 	    classrelation_ref 136066 // <composition>
       end
 
-      classrelation 136194 // <composition>
+      classrelation 136194 // GameStatus (<composition>)
 	relation 135554 *---
-	  a role_name "" private
-	    classrelation_ref 136194 // <composition>
+	  a role_name "GameStatus" multiplicity "1" private
+	    classrelation_ref 136194 // GameStatus (<composition>)
 	  b role_name "" private
 	    classrelation_ref 136322 // <composition>
       end
@@ -568,10 +568,10 @@ format 222
 	relation_ref 135682 // <composition>
       end
 
-      classrelation 136706 // <composition>
+      classrelation 136706 // Input (<composition>)
 	relation 135810 *---
-	  a role_name "" private
-	    classrelation_ref 136706 // <composition>
+	  a role_name "Input" multiplicity "1" private
+	    classrelation_ref 136706 // Input (<composition>)
 	  b role_name "" private
 	    classrelation_ref 136834 // <composition>
       end
@@ -584,12 +584,12 @@ format 222
 	    classrelation_ref 137858 // <composition>
       end
 
-      classrelation 138498 // <composition>
-	relation 136834 *---
+      classrelation 138498 // <aggregation>
+	relation 136834 o---
 	  a role_name "" private
-	    classrelation_ref 138498 // <composition>
+	    classrelation_ref 138498 // <aggregation>
 	  b role_name "" private
-	    classrelation_ref 138626 // <composition>
+	    classrelation_ref 138626 // <aggregation>
       end
     end
 
@@ -617,7 +617,6 @@ format 222
       classrelation 128251 // <association>
 	relation_ref 128123 // <association>
       end
-
     end
 
     class 128635 "SecretWord"
@@ -865,8 +864,8 @@ format 222
 	relation 136322 *---
 	  a role_name "" private
 	    classrelation_ref 137474 // <composition>
-	  b role_name "" private
-	    classrelation_ref 137602 // <composition>
+	  b role_name "wordList" multiplicity "1" private
+	    classrelation_ref 137602 // wordList (<composition>)
       end
     end
 
@@ -1045,18 +1044,18 @@ format 222
 	relation_ref 135554 // <composition>
       end
 
-      classrelation 136962 // <composition>
+      classrelation 136962 // game (<composition>)
 	relation 135938 *---
-	  a role_name "" private
-	    classrelation_ref 136962 // <composition>
+	  a role_name "game" multiplicity "1" private
+	    classrelation_ref 136962 // game (<composition>)
 	  b role_name "" private
 	    classrelation_ref 137090 // <composition>
       end
 
-      classrelation 137986 // <composition>
+      classrelation 137986 // doll (<composition>)
 	relation 136578 *---
-	  a role_name "" private
-	    classrelation_ref 137986 // <composition>
+	  a role_name "doll" multiplicity "1" private
+	    classrelation_ref 137986 // doll (<composition>)
 	  b role_name "" private
 	    classrelation_ref 138114 // <composition>
       end
@@ -1313,8 +1312,8 @@ format 222
 	relation_ref 136706 // <composition>
       end
 
-      classrelation 138626 // <composition>
-	relation_ref 136834 // <composition>
+      classrelation 138626 // <aggregation>
+	relation_ref 136834 // <aggregation>
       end
     end
   end

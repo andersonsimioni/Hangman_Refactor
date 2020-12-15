@@ -19,149 +19,149 @@ classinstance 137474 class_ref 128130 // GameStatus
 classinstance 137602 class_ref 128258 // Input
   name ""   xyz 252.6 5.44 2000 life_line_z 2000
 classinstance 147586 class_ref 128386 // Doll
-  name ""   xyz 696.2 3.54 2000 life_line_z 2000
+  name ""   xyz 696.2 4 2000 life_line_z 2000
 classinstance 148866 class_ref 128770 // Messages
-  name ""   xyz 746.5 3.54 2000 life_line_z 2000
+  name ""   xyz 746.5 4 2000 life_line_z 2000
 classinstance 149378 class_ref 128514 // EndGame
-  name ""   xyz 797.52 3.54 2000 life_line_z 2000
+  name ""   xyz 797.52 4 2000 life_line_z 2000
 durationcanvas 133890 classinstance_ref 133634 // :Menu
-  xyzwh 83 90.1391 2010 11 65
+  xyzwh 83 90 2010 11 65
   overlappingdurationcanvas 136066
-    xyzwh 89 104.632 2020 11 40
+    xyzwh 89 104 2020 11 40
   end
 end
 durationcanvas 134658 classinstance_ref 128002 // :Player
-  xyzwh 19 51.84 2010 11 961
+  xyzwh 24 51 2010 11 961
   overlappingdurationcanvas 136322
-    xyzwh 25 113.226 2020 11 70
+    xyzwh 30 113 2020 11 70
   end
   overlappingdurationcanvas 141058
-    xyzwh 25 651.14 2020 11 298
+    xyzwh 30 651 2020 11 298
   end
   overlappingdurationcanvas 141314
-    xyzwh 25 250.24 2020 11 72
+    xyzwh 30 250 2020 11 72
   end
 end
 durationcanvas 134914 classinstance_ref 128130 // :GameController
-  xyzwh 172 127.86 2010 11 893
+  xyzwh 180 127 2010 11 893
   overlappingdurationcanvas 135554
-    xyzwh 178 980.21 2020 11 33
+    xyzwh 186 980 2020 11 33
   end
   overlappingdurationcanvas 138754
-    xyzwh 178 326.06 2020 11 58
+    xyzwh 186 326 2020 11 58
   end
   overlappingdurationcanvas 143746
-    xyzwh 178 444.9 2020 11 81
+    xyzwh 186 444 2020 11 81
     overlappingdurationcanvas 147330
-      xyzwh 184 470.76 2030 11 25
+      xyzwh 192 470 2030 11 25
     end
   end
   overlappingdurationcanvas 145794
-    xyzwh 178 556.74 2020 11 40
+    xyzwh 186 556 2020 11 40
   end
   overlappingdurationcanvas 146562
-    xyzwh 178 628.62 2020 11 40
+    xyzwh 186 628 2020 11 40
   end
 end
 durationcanvas 135810 classinstance_ref 128130 // :GameController
-  xyzwh 172 51.8136 2010 11 72
+  xyzwh 180 51 2010 11 72
 end
 durationcanvas 136706 classinstance_ref 136578 // :Thank
-  xyzwh 661 983.35 2010 11 31
+  xyzwh 662 983 2010 11 31
 end
 durationcanvas 137218 classinstance_ref 128514 // :SecretWord
-  xyzwh 455 58.4527 2010 11 71
+  xyzwh 462 58 2010 11 71
   overlappingdurationcanvas 142850
-    xyzwh 461 97.4 2020 11 25
+    xyzwh 468 97 2020 11 25
   end
 end
 durationcanvas 137730 classinstance_ref 137602 // :Input
-  xyzwh 271 76.5 2010 11 32
+  xyzwh 271 76 2010 11 32
 end
 durationcanvas 137986 classinstance_ref 137474 // :GameStatus
-  xyzwh 365 86 2010 11 31
+  xyzwh 375 86 2010 11 31
 end
 durationcanvas 138242 classinstance_ref 137602 // :Input
-  xyzwh 271 158.5 2010 11 185
+  xyzwh 271 158 2010 11 185
   overlappingdurationcanvas 138498
-    xyzwh 277 308.5 2020 11 28
+    xyzwh 277 308 2020 11 28
   end
   overlappingdurationcanvas 141570
-    xyzwh 277 270.06 2020 11 34
+    xyzwh 277 270 2020 11 34
   end
 end
 durationcanvas 139266 classinstance_ref 128514 // :SecretWord
-  xyzwh 455 351.16 2010 11 139
+  xyzwh 462 351 2010 11 139
   overlappingdurationcanvas 147074
-    xyzwh 461 450.9 2020 11 34
+    xyzwh 468 450 2020 11 34
   end
 end
 durationcanvas 139778 classinstance_ref 137474 // :GameStatus
-  xyzwh 365 459.36 2010 11 230
+  xyzwh 375 459 2010 11 230
   overlappingdurationcanvas 144002
-    xyzwh 371 498.36 2020 11 26
+    xyzwh 381 498 2020 11 26
   end
   overlappingdurationcanvas 146050
-    xyzwh 371 585.06 2020 11 25
+    xyzwh 381 585 2020 11 25
   end
   overlappingdurationcanvas 146818
-    xyzwh 371 655.02 2020 11 25
+    xyzwh 381 655 2020 11 25
   end
 end
 durationcanvas 140546 classinstance_ref 137474 // :GameStatus
-  xyzwh 365 689.62 2010 11 219
+  xyzwh 375 689 2010 11 219
   overlappingdurationcanvas 140802
-    xyzwh 371 690.74 2020 11 168
+    xyzwh 381 690 2020 11 168
   end
 end
 durationcanvas 141826 classinstance_ref 128386 // :WorldList
-  xyzwh 537 61.92 2010 11 55
+  xyzwh 543 61 2010 11 55
   overlappingdurationcanvas 142338
-    xyzwh 543 83.24 2020 11 25
+    xyzwh 549 83 2020 11 25
   end
 end
 durationcanvas 142082 classinstance_ref 128258 // :FileIO
-  xyzwh 606 66.2 2010 11 28
+  xyzwh 606 66 2010 11 28
 end
 durationcanvas 145538 classinstance_ref 128514 // :SecretWord
-  xyzwh 455 545.72 2010 11 26
+  xyzwh 462 545 2010 11 26
 end
 durationcanvas 146306 classinstance_ref 128514 // :SecretWord
-  xyzwh 455 610.74 2010 11 32
+  xyzwh 462 610 2010 11 32
 end
 durationcanvas 147714 classinstance_ref 147586 // :Doll
-  xyzwh 715 702.98 2010 11 95
+  xyzwh 715 702 2010 11 95
   overlappingdurationcanvas 150658
-    xyzwh 721 727.52 2020 11 31
+    xyzwh 721 727 2020 11 31
   end
 end
 durationcanvas 148994 classinstance_ref 148866 // :Messages
-  xyzwh 770 369.84 2010 11 47
+  xyzwh 778 369 2010 11 47
 end
 durationcanvas 151042 classinstance_ref 149378 // :EndGame
-  xyzwh 820 799 2010 11 30
+  xyzwh 828 799 2010 11 30
 end
 durationcanvas 151426 classinstance_ref 149378 // :EndGame
-  xyzwh 820 847 2010 11 31
+  xyzwh 828 847 2010 11 31
 end
 msg 135042 synchronous
   from durationcanvas_ref 134658
   to durationcanvas_ref 134914
-  yz 161.98 2015 msg operation_ref 143234 // "newGame() : void"
+  yz 161 2015 msg operation_ref 143234 // "newGame() : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 111 149.98
+  label_xy 111 149
 msg 135682 synchronous
   from durationcanvas_ref 134658
   to durationcanvas_ref 135554
-  yz 984.98 2025 msg operation_ref 143362 // "exit() : void"
+  yz 984 2025 msg operation_ref 143362 // "exit() : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 126 971.98
+  label_xy 126 971
 msg 135938 synchronous
   from durationcanvas_ref 134658
   to durationcanvas_ref 135810
-  yz 52.98 2015 msg operation_ref 143106 // "Execute() : void"
+  yz 52 2015 msg operation_ref 143106 // "Execute() : void"
   show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
-  label_xy 81 38.98
+  label_xy 81 38
 msg 136194 synchronous
   from durationcanvas_ref 135810
   to durationcanvas_ref 136066
